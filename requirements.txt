@@ -5,3 +5,4 @@ Flask
 scikit-learn
 sklearn
 keras
+gunicorn
