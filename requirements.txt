@@ -1,6 +1,6 @@
-pandas==2.0.0
-numpy==1.24.2
-Flask==2.2.3
-keras==2.11.0
+pandas
+numpy
+Flask
+keras
 xgboost
 gunicorn
