@@ -3,9 +3,9 @@ import pickle
 import pandas as pd
 import numpy as np
 #import tensorflow as tf
-from sklearn import preprocessing
-from keras.utils import to_categorical
-from sklearn.feature_extraction.text import TfidfVectorizer
+#from sklearn import preprocessing
+#from keras.utils import to_categorical
+#from sklearn.feature_extraction.text import TfidfVectorizer
 #from sklearn.model_selection import train_test_split
 #from tensorflow.python.keras import layers
 from keras.saving.legacy.model_config import model_from_json
@@ -183,7 +183,7 @@ def predict_dis():
             temp = drug1 + drug2
     else:
         temp = recommendation(age , str(disease[0]),gender)'''
-    return jsonify({'disease':str(disease)})
+    return jsonify({'disease':disease})
 
 if __name__ == '__main__':
     app.run()
