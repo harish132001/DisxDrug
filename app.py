@@ -143,7 +143,7 @@ def predict_dis():
     gender = request.form.get('gender')
     d = request.form.get('data').split(",")
     hd = [float(i) for i in d]
-    disease = []
+    disease = ''
     query = []
     count = 0
     data = pd.read_csv("./Symptom-severity.csv")
@@ -161,7 +161,7 @@ def predict_dis():
     heart_d = loaded_model.predict(input_hd)
     for j in range(len(data1)):
         if result[0] == int(data1.iloc[j]["Disease_Labels"]):
-            disease.append(data1.iloc[j]["Disease"])
+            disease = data1.iloc[j]["Disease"]
             break
     m_v = max(heart_d[0])
     sev = 0
@@ -169,7 +169,7 @@ def predict_dis():
         if m_v == heart_d[0][k]:
             sev = k
             if k >= 2:
-                disease.append("Chronic Heart Failure")
+                disease= disease+(" and Chronic Heart Failure")
             break
     '''if len(disease)>1:
             drug1 = recommendation(int(age),str(disease[0]), str(gender))
