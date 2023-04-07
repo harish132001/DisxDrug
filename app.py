@@ -164,7 +164,7 @@ def predict_dis():
     for k in range(17-count):
         query.append(0)
     input_query = np.array([query])
-    input_hd = np.array([age,sex,cp,trestbps,fbs,thalach,exang,oldpeak,slope,ca,thal])
+    input_hd = np.array([[age,sex,cp,trestbps,fbs,thalach,exang,oldpeak,slope,ca,thal]])
     result = disease_prediction.predict(input_query)
     heart_d = loaded_model.predict(input_hd)
     for j in range(len(data1)):
