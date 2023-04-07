@@ -2,6 +2,7 @@ pandas
 numpy
 flask
 keras
+scikit-learn 
 tensorflow
 xgboost
 gunicorn
