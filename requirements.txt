@@ -1,7 +1,7 @@
-tensorflow
 pandas
 numpy
-Flask
+flask
 keras
+tensorflow
 xgboost
 gunicorn
