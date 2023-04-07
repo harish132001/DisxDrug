@@ -141,8 +141,16 @@ def predict_dis():
     q = request.form.get('symptoms').split(',')
     age = int(request.form.get('age'))
     gender = request.form.get('gender')
-    d = request.form.get('data').split(",")
-    hd = [float(i) for i in d]
+    sex = int(request.form.get('sex'))
+    cp = int(request.form.get('cp'))
+    trestbps = int(request.form.get('trestbps'))
+    fbs = int(request.form.get('fbs'))
+    thalach = int(request.form.get('thalach'))
+    exang =int(request.form.get('exang'))
+    oldpeak = float(request.form.get('oldpeak'))
+    slope = int(request.form.get('slope'))
+    ca = int(request.form.get('ca'))
+    thal = int(request.form.get('thal'))
     disease = ''
     query = []
     count = 0
@@ -156,7 +164,7 @@ def predict_dis():
     for k in range(17-count):
         query.append(0)
     input_query = np.array([query])
-    input_hd = np.array([hd])
+    input_hd = np.array([age,sex,cp,trestbps,fbs,thalach,exang,oldpeak,slope,ca,thal])
     result = disease_prediction.predict(input_query)
     heart_d = loaded_model.predict(input_hd)
     for j in range(len(data1)):
@@ -164,10 +172,8 @@ def predict_dis():
             disease = data1.iloc[j]["Disease"]
             break
     m_v = max(heart_d[0])
-    sev = 0
     for k in range(5):
         if m_v == heart_d[0][k]:
-            sev = k
             if k >= 2:
                 disease= disease+(" and Chronic Heart Failure")
             break
