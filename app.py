@@ -132,7 +132,7 @@ sentimental_model.load_weights("sentiment_analysis_model.h5")
 '''
 #------------------------------------------------FUNCTION END------------------------------------------------#
 
-@app.route('/',methods = ["POST"])
+@app.route('/')
 def home():
     return "hello world"
 
